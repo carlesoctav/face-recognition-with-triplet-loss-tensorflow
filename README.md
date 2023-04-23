@@ -13,7 +13,7 @@ To reproduce the results, follow the steps below:
 1. Clone the repository:
 
 ```
-git clone 
+git clone https://github.com/carlesoctav/face-recognition-with-triplet-loss-tensorflow.git
 ```
 
 2. Install the dependencies: (use any environment management tool of your choice)
