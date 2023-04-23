@@ -45,7 +45,7 @@ def for_training_model(target_shape=(160, 160)):
 
 
 class face_net_model(Model): 
-    """The Siamese Network model with a custom training and testing loops.
+    """The Siamese Network model (wrapper) with a custom training and testing loops.
 
     Computes the triplet loss using the three embeddings produced by the
     Siamese Network.

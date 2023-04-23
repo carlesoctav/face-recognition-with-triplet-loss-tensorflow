@@ -19,8 +19,11 @@ encoding_dict = dict()
 l2_normalizer = Normalizer('l2')
 ###############################
 
-
-
+"""
+"Create a dictionary of encodings/embeddings for each face in the dataset.
+Sum the encodings of all the images of a person and 
+normalize the sum to have a length of 1.
+"""
 
 for face_names in os.listdir(face_data):
     person_dir = os.path.join(face_data,face_names)

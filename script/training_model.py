@@ -10,10 +10,6 @@ import matplotlib.image as mpimg
 import argparse
 
 
-
-
- 
-
 def preprocess_image(filename):
     """
     Load the specified file as a JPEG image, preprocess it and
@@ -64,6 +60,9 @@ def preprocess_triplets(anchor, positive, negative):
 
 
 def prepare_data(train_size = 1000):
+    """
+    prepare data for training as a tf.data.Dataset instance
+    """
     anchor, positive, negative = generate_triplets(here("mtcnn-faces"), train_size)
     dataset_anchor = tf.data.Dataset.from_tensor_slices(anchor)
     dataset_positive = tf.data.Dataset.from_tensor_slices(positive)
@@ -76,6 +75,15 @@ def prepare_data(train_size = 1000):
 
 
 def training_process(epochs, batch_size, learning_rate, margin, train_size, cache):
+    """
+    fine tune pre-trained model
+    epochs: number of epochs
+    batch_size: batch size
+    learning_rate: learning rate
+    margin: margin for triplet loss
+    train_size: number of training images each person
+    cache: cache the dataset
+    """
     dataset = prepare_data()
     dataset = dataset.batch(batch_size)
     dataset = dataset.prefetch(tf.data.experimental.AUTOTUNE)
@@ -95,6 +103,9 @@ def training_process(epochs, batch_size, learning_rate, margin, train_size, cach
 
 
 def arg_parse():
+    """
+    argument parser
+    """
     parser = argparse.ArgumentParser(description="training model arguments")
     parser.add_argument("--epochs", type = int, default = 1, help = "number of epochs")
     parser.add_argument("--batch_size", type = int, default = 32, help = "batch size")

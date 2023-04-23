@@ -9,15 +9,29 @@ import random
 import numpy as np
 from pyprojroot.here import here
 
-
 def generate_triplets(path, num_triplets_each_person=100):
     """
-    Generate triplets from the mtcnn-faces folder
-    :param path: path to the mtcnn-faces folder
-    :param num_triplets: number of triplets to generate
-    :param num_samples: number of samples to choose from for each triplet
-    :return: a tuple of lists of anchors, positives, and negatives
+    Generate triplets for training a triplet-based model using anchor, positive, and negative images.
+
+    Parameters:
+        path (str): Path to the directory containing the anchor, positive, and negative images.
+        num_triplets_each_person (int, optional, default=100): Number of triplets to generate for each person.
+
+    Returns:
+        tuple: A tuple containing three lists - anchors, positives, and negatives.
+               Each list contains file paths to the anchor, positive, and negative images, respectively.
+
+    Dependencies:
+        - os: For working with file paths.
+        - random: For generating random numbers.
+        - numpy (imported as np): For working with arrays.
+        - pyprojroot.here: For getting the root directory path of the project.
+
+    Usage:
+        anchors, positives, negatives = generate_triplets(path, num_triplets_each_person=100)
+
     """
+
     anchors = []
     positives = []
     negatives = []

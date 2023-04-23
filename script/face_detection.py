@@ -5,9 +5,29 @@ import matplotlib.pyplot as plt
 import cv2
 
 
+
 # use mtcnn to detect faces in the data folder, make a folder name mtcnn-faces as output, change the output size to size
 
 def mtcnn_detect(path, output_size=160):
+    """
+    Detect faces in images using MTCNN algorithm and save them as separate images.
+
+    Parameters:
+        path (str): Path to the directory containing the input images.
+        output_size (int, optional, default=160): Size of the output face images after resizing.
+                                                  The output images will be square images with
+                                                  dimensions `output_size x output_size`.
+                                                
+
+    Usage:
+        mtcnn_detect(path, output_size=160)
+
+    Example:
+        path = "/path/to/images"  # Path to directory containing input images
+        output_size = 128  # Specify output size of detected faces
+        mtcnn_detect(path, output_size=output_size)
+
+    """
 
     if not os.path.exists(here("mtcnn-faces")):
         os.mkdir(here("mtcnn-faces"))
