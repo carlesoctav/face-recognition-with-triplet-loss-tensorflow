@@ -31,7 +31,7 @@ For each person whose face you want the system to recognize, create a folder wit
 Run the following command to extract faces from the images in the dataset using MTCNN:
 
 ```
-python script/face_detector.py
+python script/face_detection.py
 ```
 
 5. Train the model:
