@@ -4,7 +4,6 @@
 
 This repository contains code for fine-tuning a face recognition model using the Inception ResNet V2 architecture with a triplet loss in TensorFlow. The model is trained to recognize faces of individuals from a dataset, and it uses a face-only dataset obtained using the MTCNN (Multi-task Cascaded Convolutional Networks) face detection system.
 
-![example-1](media/carles-face.png)
 
 ## How to Reproduce the Results
 
